@@ -14,7 +14,7 @@ LIBS = -L$(LIB_DIR) -lmprompt  # Link against your static library
 # Target executable
 TARGET = $(BUILD_DIR)/program
 
-all: $(TARGET)
+all: clean $(TARGET)
 
 # Rule to link object files and create the executable
 $(TARGET): $(OBJS)
