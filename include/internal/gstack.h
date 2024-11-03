@@ -28,6 +28,14 @@ void         mp_gsave_free(mp_gsave_t* gsave);
 mp_gstack_t* mp_gstack_current(void);             // implemented in <mprompt.c>
 
 
+//---------------------------------------------------------------------------
+// test definition by zhengyi
+// prefix: zz
+//---------------------------------------------------------------------------
+
+extern mp_gstack_t *zz_gstack;
+void zz_init();
+
 
 /*------------------------------------------------------------------------------
   Support address sanitizer
