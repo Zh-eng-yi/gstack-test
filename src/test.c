@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "mprompt.h"
+ #include <sys/types.h>
 #include "internal/gstack.h"
 
 int main() {
@@ -32,4 +33,28 @@ int main() {
 
   printf("checking committed size...\n");
   printf("committed: %zd\n", g->committed);
+
+  printf("g address: %p\n", g);
+  printf("stack address: %p\n", g->stack);
+  printf("diff: %td\n", (void *) g->stack - (void *) g);
+
+  mp_gstack_free(g, false);
+  printf("this will give seg fault\n");
+  printf("stack_size: %zd\n", g->stack_size);
+
+  // printf("accessing the bottom...\n");
+  // printf("%04x\n", g->stack[0]);
+
+  // printf("checking committed size...\n");
+  // printf("committed: %zd\n", g->committed);
+
+  // printf("this should give seg fault...\n");
+  // printf("%04x\n", g->stack[-1]);
+
+  // uint8_t       extra[1];           // extra allocated (holds the mp_prompt_t structure)
+  // printf("size: %zd\n", sizeof(int*));
+
+  // int array[5];
+  // printf("size: %ld\n", sizeof(array));
+
 }
